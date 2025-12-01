@@ -1,4 +1,6 @@
 
+seeds/
+
 target/
 dbt_packages/
 logs/
@@ -11,4 +13,4 @@ profiles.yml
 *.duckdb
 *.db
 
-seeds/
+
