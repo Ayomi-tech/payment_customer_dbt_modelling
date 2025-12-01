@@ -1,0 +1,41 @@
+dbtproject:
+  outputs:
+    dev:
+      dataset: dbt_project1
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: europe-west3
+      method: oauth
+      priority: interactive
+      project: october-jolly-438009-h7
+      threads: 60
+      type: bigquery
+  target: dev
+myproject1:
+  outputs:
+    dev:
+      dataset: dbt_myproject1
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: europe-west3
+      method: oauth
+      priority: interactive
+      project: dbt-learn-24
+      threads: 60
+      type: bigquery
+  target: dev
+
+my_project:
+  outputs:
+    dev:
+      type: duckdb
+      path: /Users/makpro/Desktop/auto1/my_project/dev.duckdb
+      schema: auto
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: /Users/makpro/Desktop/auto1/my_project/dev.duckdb 
+      threads: 4
+
+  target: dev

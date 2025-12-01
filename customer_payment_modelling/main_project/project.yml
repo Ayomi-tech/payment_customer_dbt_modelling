@@ -1,0 +1,57 @@
+name: 'main_project'
+version: '1.0.0'
+profile: 'my_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  my_project:
+    staging:
+      +enabled: true
+      +materialized: table
+      +schema: stg_transaction_data # Schema for staging
+
+    warehouse:
+      +enabled: true
+      +materialized: incremental
+      +schema: dwh_transaction_data  # Schema for warehouse models
+
+      fact_payments:
+        +materialized: incremental
+        +unique_key: payment_id
+
+      dim_customers:
+        +materialized: table
+        +unique_key: customer_identifier
+
+      dim_customer_address_details:
+        +materialized: incremental
+        +unique_key: address_id
+
+      fact_payment_requests:
+        +materialized: incremental
+        +unique_key: payment_request_id
+
+      dim_payment_instrument_tokens:
+        +materialized: table
+        +unique_key: payment_instrument_token_id
+
+      dim_payment_primer_accounts:
+        +materialized: table
+        +unique_key: primer_account_id
+
+seeds:
+  my_project:
+    +enabled: true
+    +schema: raw_data
+
+
