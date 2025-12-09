@@ -1,4 +1,3 @@
-
 {{ config(materialized='incremental', unique_key='address_id', incremetal ='merge') }}
 
 WITH staged_payments AS (
