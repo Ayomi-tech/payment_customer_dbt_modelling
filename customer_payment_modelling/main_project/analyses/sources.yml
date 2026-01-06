@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: dwh_transaction_data
+    schema: dwh_transaction_data
+    description: "Data warehouse tables in DuckDB"
+
+    tables:
+      - name: fact_payment
+        description: "Processed payments data from DuckDB"
+
+      - name: fact_payment_request
+        description: "Processed payment request data from DuckDB"
+
+      - name: dim_payment_primer_account
+        description: "Processed primer account data from DuckDB"
+
+      - name: dim_payment_instrument_token
+        description: "Processed payment instrument token data from DuckDB"
